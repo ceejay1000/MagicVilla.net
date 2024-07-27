@@ -1,6 +1,8 @@
 
 using MagicVilla_WebApi.Data;
 using MagicVilla_WebApi.Logging;
+using MagicVilla_WebApi.Repository;
+using MagicVilla_WebApi.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -30,6 +32,8 @@ namespace MagicVilla_WebApi
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddSingleton<ILogging, LoggingImpl>();
+            builder.Services.AddSingleton<IVillaNumberRepository, VillaNumberRepository>();
+            builder.Services.AddSingleton<IVillaRepository, VillaRepository>();
             builder.Services.AddAutoMapper(typeof(MappingConfig));
             var app = builder.Build();
 

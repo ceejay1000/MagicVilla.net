@@ -8,6 +8,9 @@ namespace MagicVilla_WebApi.Models.DTO
         public int Id { get; set; }
 
         [Required]
+        public int VillaID { get; set; }
+
+        [Required]
         [MaxLength(30)]
         public string Name { get; set; } = string.Empty;
         public int Sqft { get; internal set; }
